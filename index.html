@@ -3,89 +3,96 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bengaluru Minimalist Itinerary</title>
+    <title>Bengaluru Itinerary</title>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;600&display=swap" rel="stylesheet">
     <style>
         :root {
             --bg: #fdfdfb;
             --line: #e2e8f0;
-            --accent: #556b2f; /* Dark Olive */
+            --accent: #556b2f;
             --text: #1a202c;
             --secondary: #718096;
+            --card-bg: #ffffff;
         }
+
+        * { box-sizing: border-box; }
 
         body {
             font-family: 'Outfit', sans-serif;
             background-color: var(--bg);
             color: var(--text);
             margin: 0;
-            padding: 60px 20px;
-            line-height: 1.6;
+            padding: 20px;
+            line-height: 1.5;
+            -webkit-font-smoothing: antialiased;
         }
 
         .container {
-            max-width: 900px;
+            max-width: 500px;
             margin: 0 auto;
         }
 
         header {
-            margin-bottom: 80px;
-            border-left: 4px solid var(--accent);
-            padding-left: 25px;
+            margin: 20px 0 40px 0;
+            padding-left: 15px;
+            border-left: 3px solid var(--accent);
         }
 
         h1 {
-            font-size: 2.5rem;
-            letter-spacing: -1px;
+            font-size: 2rem;
+            letter-spacing: -0.5px;
             margin: 0;
             text-transform: uppercase;
         }
 
         .subtitle {
             color: var(--secondary);
+            font-size: 0.9rem;
             font-weight: 300;
         }
 
-        .itinerary-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
+        .day-section {
+            margin-bottom: 40px;
         }
 
-        .day-section h2 {
-            font-size: 0.9rem;
+        .day-header {
+            font-size: 0.8rem;
             text-transform: uppercase;
-            letter-spacing: 3px;
+            letter-spacing: 2px;
             color: var(--secondary);
-            margin-bottom: 30px;
+            margin-bottom: 20px;
             display: flex;
             align-items: center;
         }
 
-        .day-section h2::after {
+        .day-header::after {
             content: "";
             flex: 1;
             height: 1px;
             background: var(--line);
-            margin-left: 15px;
+            margin-left: 10px;
         }
 
         .item {
             display: flex;
-            align-items: flex-start;
-            margin-bottom: 24px;
-            position: relative;
+            align-items: center;
+            margin-bottom: 12px;
+            background: var(--card-bg);
+            padding: 12px;
+            border-radius: 16px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+            border: 1px solid rgba(0,0,0,0.02);
         }
 
         .icon-box {
-            width: 40px;
-            height: 40px;
+            width: 44px;
+            height: 44px;
             background: #f1f5f1;
-            border-radius: 10px;
+            border-radius: 12px;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-right: 20px;
+            margin-right: 15px;
             flex-shrink: 0;
         }
 
@@ -93,37 +100,53 @@
             width: 20px;
             height: 20px;
             stroke: var(--accent);
-            stroke-width: 1.5;
+            stroke-width: 1.8;
             fill: none;
         }
 
         .details p {
             margin: 0;
-            font-weight: 500;
-            font-size: 1.05rem;
+            font-weight: 600;
+            font-size: 0.95rem;
+            color: var(--text);
         }
 
         .details span {
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             color: var(--secondary);
-            font-weight: 300;
+            font-weight: 400;
+            display: block;
         }
 
         .bus-footer {
-            grid-column: 1 / -1;
-            margin-top: 40px;
-            padding: 30px;
+            margin-top: 30px;
+            padding: 20px;
             background: #1a202c;
             color: white;
-            border-radius: 16px;
+            border-radius: 20px;
             display: flex;
-            justify-content: space-between;
-            align-items: center;
+            flex-direction: column;
+            gap: 5px;
+            text-align: center;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
         }
 
-        @media (max-width: 768px) {
-            .itinerary-grid { grid-template-columns: 1fr; }
-            header { margin-bottom: 40px; }
+        .bus-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            opacity: 0.7;
+        }
+
+        .bus-time {
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
+        /* Small tap animation for mobile */
+        .item:active {
+            transform: scale(0.98);
+            transition: 0.1s;
         }
     </style>
 </head>
@@ -132,90 +155,85 @@
 <div class="container">
     <header>
         <h1>Bengaluru</h1>
-        <p class="subtitle">April 14 — 15, 2026</p>
+        <div class="subtitle">April 14 — 15, 2026</div>
     </header>
 
-    <div class="itinerary-grid">
-        <div class="day-section">
-            <h2>Day 01 • Tuesday</h2>
-            
-            <div class="item">
-                <div class="icon-box"><svg viewBox="0 0 24 24"><path d="M18 8h1a4 4 0 0 1 0 8h-1M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg></div>
-                <div class="details"><p>Rameshwaram Cafe</p><span>Breakfast</span></div>
-            </div>
-
-            <div class="item">
-                <div class="icon-box"><svg viewBox="0 0 24 24"><path d="M2 22s1-10 10-10 10 10 10 10"/><path d="M7 7a5 5 0 1 1 10 0"/></svg></div>
-                <div class="details"><p>Cubbon Park</p><span>Morning Walk</span></div>
-            </div>
-
-            <div class="item">
-                <div class="icon-box"><svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="2" y1="20" x2="22" y2="20"/></svg></div>
-                <div class="details"><p>Vishveshwaraya Museum</p><span>Gallery Visit</span></div>
-            </div>
-
-            <div class="item">
-                <div class="icon-box"><svg viewBox="0 0 24 24"><path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"/><path d="M7 2v20"/><path d="M21 15V2v0a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3Zm0 0v7"/></svg></div>
-                <div class="details"><p>Nagarjuna</p><span>Andhra Lunch</span></div>
-            </div>
-
-            <div class="item">
-                <div class="icon-box"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
-                <div class="details"><p>Nehru Planetarium</p><span>Science Show</span></div>
-            </div>
-
-            <div class="item">
-                <div class="icon-box"><svg viewBox="0 0 24 24"><path d="M17 18H7a2 2 0 0 1-2-2V5c0-1.1.9-2 2-2h10a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2z"/><path d="M12 8l-2 2 2 2 2-2z"/></svg></div>
-                <div class="details"><p>Kahale Filter Coffee</p><span>Afternoon Brew</span></div>
-            </div>
-
-            <div class="item">
-                <div class="icon-box"><svg viewBox="0 0 24 24"><path d="M13 22l-3-3h-7a2 2 0 0 1-2-2v-12a2 2 0 0 1 2-2h18a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2h-5l-3 3z"/></svg></div>
-                <div class="details"><p>Church Street</p><span>Stroll</span></div>
-            </div>
-
-            <div class="item">
-                <div class="icon-box"><svg viewBox="0 0 24 24"><path d="M6 3h12l1 7h-14l1-7z"/><path d="M7 10v11"/><path d="M17 10v11"/><path d="M12 10v11"/></svg></div>
-                <div class="details"><p>Toit</p><span>Brewpub Dinner</span></div>
-            </div>
+    <div class="day-section">
+        <div class="day-header">Day 01 • Tuesday</div>
+        
+        <div class="item">
+            <div class="icon-box"><svg viewBox="0 0 24 24"><path d="M18 8h1a4 4 0 0 1 0 8h-1M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg></div>
+            <div class="details"><p>Rameshwaram Cafe</p><span>Breakfast</span></div>
         </div>
 
-        <div class="day-section">
-            <h2>Day 02 • Wednesday</h2>
-
-            <div class="item">
-                <div class="icon-box"><svg viewBox="0 0 24 24"><path d="M18 8h1a4 4 0 0 1 0 8h-1M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/></svg></div>
-                <div class="details"><p>Vidyarthi Bhavan</p><span>Legacy Breakfast</span></div>
-            </div>
-
-            <div class="item">
-                <div class="icon-box"><svg viewBox="0 0 24 24"><path d="M12 2L4.5 20.29l.71.71L12 18l6.79 3 .71-.71z"/></svg></div>
-                <div class="details"><p>Lalbagh</p><span>Botanical Garden</span></div>
-            </div>
-
-            <div class="item">
-                <div class="icon-box"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
-                <div class="details"><p>Shreyas</p><span>Social Connection</span></div>
-            </div>
-
-            <div class="item">
-                <div class="icon-box"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v8"/><path d="M8 12h8"/></svg></div>
-                <div class="details"><p>Amritsari Kulcha Land</p><span>JP Nagar Lunch</span></div>
-            </div>
-
-            <div class="item">
-                <div class="icon-box"><svg viewBox="0 0 24 24"><path d="M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18z"/><path d="M12 8v4l3 3"/></svg></div>
-                <div class="details"><p>Big Fat Roll</p><span>Kammanahalli Snacks</span></div>
-            </div>
+        <div class="item">
+            <div class="icon-box"><svg viewBox="0 0 24 24"><path d="M2 22s1-10 10-10 10 10 10 10"/><path d="M7 7a5 5 0 1 1 10 0"/></svg></div>
+            <div class="details"><p>Cubbon Park</p><span>Morning Walk</span></div>
         </div>
 
-        <div class="bus-footer">
-            <div style="display:flex; align-items:center;">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right:15px"><rect x="4" y="4" width="16" height="12" rx="2"/><path d="M9 20h6"/><path d="M8 16v4"/><path d="M16 16v4"/></svg>
-                <span>Return from Majestic</span>
-            </div>
-            <span style="font-weight:600; letter-spacing:1px;">11:00 PM</span>
+        <div class="item">
+            <div class="icon-box"><svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="2" y1="20" x2="22" y2="20"/></svg></div>
+            <div class="details"><p>Vishveshwaraya Museum</p><span>Gallery Visit</span></div>
         </div>
+
+        <div class="item">
+            <div class="icon-box"><svg viewBox="0 0 24 24"><path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"/><path d="M7 2v20"/><path d="M21 15V2v0a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3Zm0 0v7"/></svg></div>
+            <div class="details"><p>Nagarjuna</p><span>Andhra Lunch</span></div>
+        </div>
+
+        <div class="item">
+            <div class="icon-box"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
+            <div class="details"><p>Nehru Planetarium</p><span>Science Show</span></div>
+        </div>
+
+        <div class="item">
+            <div class="icon-box"><svg viewBox="0 0 24 24"><path d="M17 18H7a2 2 0 0 1-2-2V5c0-1.1.9-2 2-2h10a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2z"/><path d="M12 8l-2 2 2 2 2-2z"/></svg></div>
+            <div class="details"><p>Kahale Filter Coffee</p><span>Afternoon Brew</span></div>
+        </div>
+
+        <div class="item">
+            <div class="icon-box"><svg viewBox="0 0 24 24"><path d="M13 22l-3-3h-7a2 2 0 0 1-2-2v-12a2 2 0 0 1 2-2h18a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2h-5l-3 3z"/></svg></div>
+            <div class="details"><p>Church Street</p><span>Stroll</span></div>
+        </div>
+
+        <div class="item">
+            <div class="icon-box"><svg viewBox="0 0 24 24"><path d="M6 3h12l1 7h-14l1-7z"/><path d="M7 10v11"/><path d="M17 10v11"/><path d="M12 10v11"/></svg></div>
+            <div class="details"><p>Toit</p><span>Brewpub Dinner</span></div>
+        </div>
+    </div>
+
+    <div class="day-section">
+        <div class="day-header">Day 02 • Wednesday</div>
+
+        <div class="item">
+            <div class="icon-box"><svg viewBox="0 0 24 24"><path d="M18 8h1a4 4 0 0 1 0 8h-1M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/></svg></div>
+            <div class="details"><p>Vidyarthi Bhavan</p><span>Legacy Breakfast</span></div>
+        </div>
+
+        <div class="item">
+            <div class="icon-box"><svg viewBox="0 0 24 24"><path d="M12 2L4.5 20.29l.71.71L12 18l6.79 3 .71-.71z"/></svg></div>
+            <div class="details"><p>Lalbagh</p><span>Botanical Garden</span></div>
+        </div>
+
+        <div class="item">
+            <div class="icon-box"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+            <div class="details"><p>Talk to Shreyas</p><span>Social Connection</span></div>
+        </div>
+
+        <div class="item">
+            <div class="icon-box"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v8"/><path d="M8 12h8"/></svg></div>
+            <div class="details"><p>Amritsari Kulcha Land</p><span>JP Nagar Lunch</span></div>
+        </div>
+
+        <div class="item">
+            <div class="icon-box"><svg viewBox="0 0 24 24"><path d="M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18z"/><path d="M12 8v4l3 3"/></svg></div>
+            <div class="details"><p>Big Fat Roll</p><span>Kammanahalli Snacks</span></div>
+        </div>
+    </div>
+
+    <div class="bus-footer">
+        <span class="bus-label">Return from Majestic</span>
+        <span class="bus-time">11:00 PM</span>
     </div>
 </div>
 
