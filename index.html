@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bengaluru Itinerary</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #f8f9fa;
+            --accent-1: #4a6670;
+            --accent-2: #8b5e3c;
+            --text: #2d3436;
+            --white: #ffffff;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            margin: 0;
+            padding: 40px 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .container {
+            max-width: 1000px;
+            width: 100%;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            margin-bottom: 10px;
+            color: var(--accent-1);
+        }
+
+        .itinerary-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+
+        .day-card {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+        }
+
+        .day-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .date-badge {
+            display: inline-block;
+            background: var(--accent-1);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .day-2 .date-badge {
+            background: var(--accent-2);
+        }
+
+        h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            margin-top: 0;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        li {
+            padding: 15px 0;
+            border-bottom: 1px solid #edf2f7;
+            display: flex;
+            align-items: center;
+        }
+
+        li:last-child {
+            border-bottom: none;
+        }
+
+        li span.category {
+            font-weight: 600;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #a0aec0;
+            width: 100px;
+            display: inline-block;
+        }
+
+        .bus-highlight {
+            background: #fff5f5;
+            color: #c53030;
+            padding: 10px;
+            border-radius: 8px;
+            font-weight: 600;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .itinerary-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>The Bengaluru Trail</h1>
+        <p>A 48-hour curated journey through the Garden City</p>
+    </header>
+
+    <div class="itinerary-grid">
+        <div class="day-card">
+            <div class="date-badge">APRIL 14</div>
+            <h2>Day 01</h2>
+            <ul>
+                <li><span class="category">Morning</span> Rameshwaram Cafe Breakfast</li>
+                <li><span class="category">Explore</span> Cubbon Park</li>
+                <li><span class="category">Culture</span> Vishveshwaraya Museum</li>
+                <li><span class="category">Lunch</span> Nagarjuna (Andhra Style)</li>
+                <li><span class="category">Science</span> Jawaharlal Nehru Planetarium</li>
+                <li><span class="category">Coffee</span> Kahale Filter Coffee</li>
+                <li><span class="category">Walk</span> Church Street</li>
+                <li><span class="category">Evening</span> Dinner at Toit</li>
+            </ul>
+        </div>
+
+        <div class="day-card day-2">
+            <div class="date-badge">APRIL 15</div>
+            <h2>Day 02</h2>
+            <ul>
+                <li><span class="category">Morning</span> Vidyarthi Bhavan Breakfast</li>
+                <li><span class="category">Nature</span> Lalbagh Botanical Garden</li>
+                <li><span class="category">Social</span> Catch up with Shreyas</li>
+                <li><span class="category">Lunch</span> Amritsari Kulcha Land (JP Nagar)</li>
+                <li><span class="category">Snack</span> Big Fat Roll (Kammanahalli)</li>
+            </ul>
+            <div class="bus-highlight">
+                🚌 Return Bus @ Majestic — 11:00 PM
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
